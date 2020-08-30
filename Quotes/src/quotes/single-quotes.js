@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./../style/style.css";
 import APICalling from "../API/api-call";
+import Quotes from "./quotes";
+import Loader from "./loader";
 
 const SingleQuote = () => {
 	// State management
@@ -51,28 +53,15 @@ const SingleQuote = () => {
 	const { loading, quoteText, quoteAuthor } = quote;
 
 	return loading ? (
-		<div className="loader" id="load"></div>
+		<Loader />
 	) : (
-		<div className="quote-container" id="quote-container">
-			{/* Quote Text */}
-			<div className="quote-text">
-				<i className="fas fa-quote-left"></i>
-				<span id="quote">{quoteText}</span>
-			</div>
-			{/* Quote Author */}
-			<div className="quote-author">
-				<p>{quoteAuthor}</p>
-			</div>
-			<div className="quote-button">
-				<button className="twitter-button" id="tweet">
-					<i className="fab fa-twitter icon" onClick={twitterShareHandler}></i>
-					<i className="fab fa-facebook icon" onClick={fbShareHandler}></i>
-				</button>
-				<button id="new-quote" onClick={quoteHandler}>
-					New Quote
-				</button>
-			</div>
-		</div>
+		<Quotes
+			quoteText={quoteText}
+			quoteAuthor={quoteAuthor}
+			twitterShareHandler={twitterShareHandler}
+			quoteHandler={quoteHandler}
+			fbShareHandler={fbShareHandler}
+		/>
 	);
 };
 

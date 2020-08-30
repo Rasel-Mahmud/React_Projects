@@ -1,6 +1,12 @@
 import React from "react";
 
-const Quotes = () => {
+const Quotes = ({
+	quoteText,
+	quoteAuthor,
+	fbShareHandler,
+	twitterShareHandler,
+	quoteHandler,
+}) => {
 	return (
 		<div className="quote-container" id="quote-container">
 			{/* Quote Text */}

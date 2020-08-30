@@ -1,0 +1,40 @@
+Page - 1
+Request for Proposal
+Website Design, Development and Content Management Services
+
+page - 5
+D.) Key Integrations
+3rd party intregration
+
+Scholar Enrollment:
+supports our WordPress-hosted Spanish website with language translation services
+
+page - 6
+E.1. External audience-facing challenges:
+Several WordPress modules / widgets do not render effectively on mobile
+
+E.2. Internal challenges:
+
+-- Servers, multisite integration and environments
+-- WordPress updates, compatibility and version control
+** before v5 and after v5 has a lot of changes
+-- Templating capabilities and rapid page creation
+
+page 8
+Project Scope
+-- Content Management System
+align with SACS on a content management system that holistically supports each department’s business needs, while meeting specific needs of the marketing and IT department (e.g. self-automation, page building, plugins, etc).
+
+page 9
+Theme(s) / Widget Development
+
+
+page 10
+WCAG / ADA Compliance
+
+Challenges :
+1. site may broke down (plugins)
+2. for lack of react knowledge, don't know how it will behave on wp
+3. any backend implemented in React? if so what type of function did the job done? Need to write these functions in WP again
+4. Page builder
+6. React may use any npm (React Package) that might not work on wordpress. Have to make that part manually.
