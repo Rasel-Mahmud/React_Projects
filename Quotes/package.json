@@ -17,7 +17,7 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"deploy": "react-scripts build && scp -i /Users/raselmahmud/aws/aws-react.pem -r ./build/* ubuntu@18.212.172.59:/var/www/react/quote"
+		"deploy": "react-scripts build && scp -i /Users/raselmahmud/aws/aws-react.pem -r ./build/* ubuntu@18.212.172.59:/var/www/quote"
 	},
 	"eslintConfig": {
 		"extends": "react-app"

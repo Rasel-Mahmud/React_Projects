@@ -20,7 +20,7 @@ E.2. Internal challenges:
 ** before v5 and after v5 has a lot of changes
 -- Templating capabilities and rapid page creation
 
-page 8
+page 9
 Project Scope
 -- Content Management System
 align with SACS on a content management system that holistically supports each department’s business needs, while meeting specific needs of the marketing and IT department (e.g. self-automation, page building, plugins, etc).
