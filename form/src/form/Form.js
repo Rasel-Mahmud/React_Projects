@@ -23,6 +23,7 @@ const Form = ({ submit, data, initialState }) => {
 
 	return (
 		<form onSubmit={formSubmitHandler}>
+			{/* First Name */}
 			<label htmlFor="firstName">First Name</label>
 			<input
 				type="text"
@@ -32,6 +33,7 @@ const Form = ({ submit, data, initialState }) => {
 				onChange={onchangeForm}
 			/>
 
+			{/* Last Name */}
 			<label htmlFor="lastName">Last Name</label>
 			<input
 				type="text"
@@ -41,6 +43,7 @@ const Form = ({ submit, data, initialState }) => {
 				onChange={onchangeForm}
 			/>
 
+			{/* Biography */}
 			<label htmlFor="biography">Biography</label>
 			<textarea
 				name="biography"
@@ -50,6 +53,7 @@ const Form = ({ submit, data, initialState }) => {
 				value={formState.biography}
 			/>
 
+			{/* Preferred Transport */}
 			<label htmlFor="transport">Preferred Transport</label>
 			<select
 				name="transport"
@@ -63,6 +67,7 @@ const Form = ({ submit, data, initialState }) => {
 				<option value="planes">Planes</option>
 			</select>
 
+			{/* Preferred Meals */}
 			<fieldset>
 				<legend>Select Your Meals</legend>
 				<label htmlFor="breakfast">Breakfast</label>
@@ -93,6 +98,7 @@ const Form = ({ submit, data, initialState }) => {
 				/>
 			</fieldset>
 
+			{/* T-Shirt Size */}
 			<fieldset>
 				<legend>T-Shirt Size</legend>
 				<label htmlFor="sizeL">Large</label>
@@ -126,6 +132,7 @@ const Form = ({ submit, data, initialState }) => {
 				/>
 			</fieldset>
 
+			{/* Terms of conditions */}
 			<label htmlFor="agree">I Agree TOC</label>
 			<input
 				type="checkbox"
