@@ -1,53 +1,6 @@
-import React, { useState, useEffect, Fragment } from "react";
-import "./../scss/Form.scss";
+import React, { useEffect, useState } from "react";
 
-const initialState = {
-	firstName: "",
-	lastName: "",
-	biography: "",
-	transport: "",
-	breakfast: false,
-	lunch: false,
-	dinner: false,
-	shirtSize: "",
-	agree: false,
-};
-
-const loadedValue = {
-	firstName: "Rasel",
-	lastName: "Mahmud",
-	biography: "I am a WordPress Developer & now learning React",
-	transport: "train",
-	breakfast: true,
-	lunch: true,
-	dinner: false,
-	shirtSize: "m",
-	agree: true,
-};
-
-const FromContainer = () => {
-	const [data, setData] = useState(initialState);
-
-	const containerSubmit = (e) => {
-		console.log(e);
-	};
-
-	const onLoadHandler = (e) => {
-		e.preventDefault();
-		setData(loadedValue);
-	};
-
-	return (
-		<Fragment>
-			<Form testSubmit={containerSubmit} data={data} />
-			<button type="button" onClick={onLoadHandler}>
-				Load Sample data
-			</button>
-		</Fragment>
-	);
-};
-
-const Form = ({ testSubmit, data }) => {
+const Form = ({ submit, data, initialState }) => {
 	const [formState, setFormState] = useState(initialState);
 
 	useEffect(() => {
@@ -65,10 +18,7 @@ const Form = ({ testSubmit, data }) => {
 
 	const formSubmitHandler = (e) => {
 		e.preventDefault();
-		testSubmit(formState);
-		console.log(testSubmit);
-		console.log("----------");
-		console.log(data);
+		submit(formState);
 	};
 
 	return (
@@ -190,4 +140,4 @@ const Form = ({ testSubmit, data }) => {
 	);
 };
 
-export default FromContainer;
+export default Form;

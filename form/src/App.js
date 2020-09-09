@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "./form/From";
-const App = () => <Form />;
+import FromContainer from "./form/FromContainer";
+const App = () => <FromContainer />;
 
 export default App;
