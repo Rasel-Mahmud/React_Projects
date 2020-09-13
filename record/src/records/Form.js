@@ -6,7 +6,7 @@ const initialvalue = {
 	description: "",
 };
 
-const Form = () => {
+const Form = ({ submit }) => {
 	const [entry, setEntry] = useState(initialvalue);
 
 	const onChangeHandler = (e) => {
@@ -21,7 +21,8 @@ const Form = () => {
 		if (!entry.recordName || !entry.artistName || !entry.description) {
 			return;
 		}
-		console.log(entry);
+		submit({ ...entry });
+		setEntry(initialvalue);
 	};
 	return (
 		<form onSubmit={onSubmitHandler}>
@@ -44,6 +45,7 @@ const Form = () => {
 				name="description"
 				id="description"
 				onChange={onChangeHandler}
+				rows="7"
 			/>
 			<button type="submit">Add</button>
 		</form>
