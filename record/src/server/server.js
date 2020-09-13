@@ -21,8 +21,22 @@ let records = [
 	},
 ];
 
+// Getting data from API
 app.get("/api/records", (req, res) => {
 	res.send(records);
+});
+
+// Post Data on API
+app.post("/api/records", (req, res) => {
+	const newRecord = {
+		id:
+			records.reduce((acc, item) => {
+				return item.id > acc ? item.id : acc;
+			}, 0) + 1,
+		...req.body,
+	};
+	records.push(newRecord);
+	res.send(newRecord);
 });
 
 app.listen(port, () => console.log(`Server is running in port ${port}`));

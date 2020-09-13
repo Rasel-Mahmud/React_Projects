@@ -1,4 +1,5 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
+import axios from "axios";
 import Header from "./Header";
 import Section from "./Section";
 import Form from "./Form";
@@ -8,8 +9,25 @@ import "./record.scss";
 const Container = () => {
 	const [records, setRecords] = useState([]);
 
+	useEffect(() => {
+		axios
+			.get("/api/records")
+			.then((res) => setRecords(res.data))
+			.catch((err) => console.log(err));
+	}, [records]);
+
 	const onSubmitHandler = (formData) => {
-		setRecords([...records, formData]);
+		axios
+			.post("/api/records", formData)
+			.then(({ data, status }) => {
+				if (status != 2000) {
+					return;
+				}
+				setRecords([...records, data]);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	};
 
 	return (
