@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from "react";
-import axios from "axios";
+import { fetchData, postData } from "./API";
 import Header from "./Header";
 import Section from "./Section";
 import Form from "./Form";
@@ -10,24 +10,21 @@ const Container = () => {
 	const [records, setRecords] = useState([]);
 
 	useEffect(() => {
-		axios
-			.get("/api/records")
-			.then((res) => setRecords(res.data))
-			.catch((err) => console.log(err));
+		fetchData().then(({ data }) => setRecords(data));
+
+		// const fetchData = async () => {
+		// 	const { data } = await axios.get("/api/records");
+		// 	setRecords(data);
+		// };
+		// fetchData();
 	}, [records]);
 
-	const onSubmitHandler = (formData) => {
-		axios
-			.post("/api/records", formData)
-			.then(({ data, status }) => {
-				if (status != 2000) {
-					return;
-				}
-				setRecords([...records, data]);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+	const onSubmitHandler = async (formData) => {
+		// const { data, status } = await axios.post("/api/records", formData);
+		// if (status != 200) {
+		// 	return;
+		// }
+		postData(formData).then(({ data }) => setRecords([...records, data]));
 	};
 
 	return (
