@@ -11,19 +11,9 @@ const Container = () => {
 
 	useEffect(() => {
 		fetchData().then(({ data }) => setRecords(data));
-
-		// const fetchData = async () => {
-		// 	const { data } = await axios.get("/api/records");
-		// 	setRecords(data);
-		// };
-		// fetchData();
 	}, [records]);
 
-	const onSubmitHandler = async (formData) => {
-		// const { data, status } = await axios.post("/api/records", formData);
-		// if (status != 200) {
-		// 	return;
-		// }
+	const onSubmitHandler = (formData) => {
 		postData(formData).then(({ data }) => setRecords([...records, data]));
 	};
 
