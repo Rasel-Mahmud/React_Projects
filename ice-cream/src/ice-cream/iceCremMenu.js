@@ -1,22 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import Helmet from 'react-helmet';
 import IceCreamImage from './iceCreamImage';
+import LoadingMessage from './../structure/LoadingMessage';
 import { iceCreamMenu } from './../data/iceCreamData';
 
 const IceCreamMenu = () => {
   const [menu, setMenu] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     let isMonuted = true;
     iceCreamMenu().then(res => {
       if (isMonuted) {
-        return setMenu(res.data);
+        setMenu(res.data);
+        setIsLoading(false);
       }
     });
 
     // don't understand it clearly (k - unmounted, memory leak, only for api call)
     return () => {
       isMonuted = false;
+      console.log('isMonuted false now in cleanup function');
     };
   }, []);
 
@@ -30,6 +34,10 @@ const IceCreamMenu = () => {
       <h2 className="main-heading">
         See the list below for your favorite ice-cream
       </h2>
+      <LoadingMessage
+        isloading={isLoading}
+        message="Loading Ice-Cream Menu ..."
+      />
       {menu.length > 0 ? (
         <ul className="container">
           {menu.map(
@@ -57,7 +65,7 @@ const IceCreamMenu = () => {
           )}
         </ul>
       ) : (
-        <p>Loading....</p>
+        !isLoading && <p>Sorry No item is available now!!!</p>
       )}
     </main>
   );
