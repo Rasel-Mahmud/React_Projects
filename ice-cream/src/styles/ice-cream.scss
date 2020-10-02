@@ -59,6 +59,7 @@ h5 {
 h3 {
   font-size: 24px;
 }
+
 h4 {
   font-size: 20px;
 }
@@ -181,7 +182,7 @@ main {
   padding-bottom: 2em;
   outline: 0;
 
-  & > p {
+  &>p {
     text-align: center;
   }
 
@@ -434,7 +435,7 @@ main {
           opacity: 0;
           position: absolute;
 
-          & + .checkbox-wrapper-checked {
+          &+.checkbox-wrapper-checked {
             display: inline-block;
             width: auto;
 
@@ -472,17 +473,17 @@ main {
             }
           }
 
-          &:checked + .checkbox-wrapper-checked:after {
+          &:checked+.checkbox-wrapper-checked:after {
             content: '';
             color: #fff;
           }
 
-          &:checked + .checkbox-wrapper-checked:before {
+          &:checked+.checkbox-wrapper-checked:before {
             background: rgba(64, 49, 71, 1);
             border-color: rgba(64, 49, 71, 1);
           }
 
-          &:focus:not(:active) + .checkbox-wrapper-checked:before {
+          &:focus:not(:active)+.checkbox-wrapper-checked:before {
             outline: 2px solid transparent;
             box-shadow: 0 0 0 2px #fff, 0 0 0 4px #8b9099;
           }
@@ -582,6 +583,7 @@ main {
         }
 
         .error {
+
           input,
           select,
           textarea {
@@ -650,7 +652,7 @@ main {
         border-radius: 0 0 1em 1em;
         max-width: 100vw;
 
-        form .error .error-wrapper > span {
+        form .error .error-wrapper>span {
           font-size: 0.8rem;
         }
       }
