@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Helmet from 'react-helmet';
+import IceCreamImage from './iceCreamImage';
 import { iceCreamMenu } from './../data/iceCreamData';
 
 const IceCreamMenu = () => {
@@ -36,7 +37,9 @@ const IceCreamMenu = () => {
               return (
                 <li key={id.toString()}>
                   <section className="card">
-                    <div className="image-container" />
+                    <div className="image-container">
+                      <IceCreamImage iceCreamID={iceCream.id} />
+                    </div>
                     <div className="text-container">
                       <h3>{iceCream.name}</h3>
                     </div>
