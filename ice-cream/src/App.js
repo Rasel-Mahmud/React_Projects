@@ -1,5 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom';
 import Header from './structure/Header';
 import Footer from './structure/Footer';
 import IceCreamMenu from './ice-cream/iceCremMenu';
@@ -10,8 +15,11 @@ const App = () => {
   return (
     <Router>
       <Header />
-      <Route path="/" exact component={IceCreamMenu} />
-      <Route path="/menu-items/:menuItemId" component={EditIceCream} />
+      <Switch>
+        <Route path="/" exact component={IceCreamMenu} />
+        <Route path="/menu-items/:menuItemId" component={EditIceCream} />
+        <Redirect to="/" />
+      </Switch>
       <Footer />
     </Router>
   );
