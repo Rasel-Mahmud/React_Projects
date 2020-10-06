@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Helmet from 'react-helmet';
+import { Link } from 'react-router-dom';
 import IceCreamImage from './iceCreamImage';
 import LoadingMessage from './../structure/LoadingMessage';
 import { iceCreamMenu } from './../data/iceCreamData';
 
-const IceCreamMenu = () => {
+const IceCreamMenu = ({ history }) => {
   const [menu, setMenu] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -23,6 +24,16 @@ const IceCreamMenu = () => {
       console.log('isMonuted false now in cleanup function');
     };
   }, []);
+
+  const onItemClickHandler = to => {
+    history.push(to);
+  };
+
+  const onClickHandler = e => {
+    // This is done to avoid the click handler of the <section>
+    // firing and placing two browse entries in browser histrory
+    e.stopPropagation();
+  };
 
   return (
     <main>
@@ -44,12 +55,21 @@ const IceCreamMenu = () => {
             ({ id, iceCream, inStock, quantity, price, description }) => {
               return (
                 <li key={id.toString()}>
-                  <section className="card">
+                  <section
+                    className="card"
+                    onClick={() => {
+                      onItemClickHandler(`/menu-items/${id}`);
+                    }}
+                  >
                     <div className="image-container">
                       <IceCreamImage iceCreamID={iceCream.id} />
                     </div>
                     <div className="text-container">
-                      <h3>{iceCream.name}</h3>
+                      <h3>
+                        <Link to={`/menu-items/${id}`} onClick={onClickHandler}>
+                          {iceCream.name}
+                        </Link>
+                      </h3>
                     </div>
                     <div className="content card-content">
                       <p className="price">{`$${price.toFixed(2)}`}</p>

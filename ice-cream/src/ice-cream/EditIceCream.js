@@ -2,7 +2,7 @@ import React from 'react';
 
 const EditIceCream = () => (
   <main>
-    <h2>Edit ice-Cream</h2>
+    <h2 className="main-heading">Edit ice-Cream</h2>
   </main>
 );
 
