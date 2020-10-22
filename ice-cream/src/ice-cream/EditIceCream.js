@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { getMenuItem } from './../data/iceCreamData';
+import { getMenuItem, putMenuItem } from './../data/iceCreamData';
+import useUniqueIds from '../hooks/useUniqueIds';
 import LoadingMessage from '../structure/LoadingMessage';
 import IceCreamImage from './iceCreamImage';
 import Helmet from 'react-helmet';
@@ -14,8 +15,10 @@ const EditIceCream = ({ match, history }) => {
     quantity: '0',
     description: '',
   });
+
   const [isloading, setIsloading] = useState(false);
   const isMounted = useRef(true);
+  const [descriptionid, quantityid, inStockid, priceid] = useUniqueIds(4);
 
   useEffect(() => {
     return () => {
@@ -67,7 +70,19 @@ const EditIceCream = ({ match, history }) => {
 
   const onSubmitHandler = e => {
     e.preventDefault();
-    console.log(menuItem);
+    const { description, iceCream, id, inStock, price, quantity } = menuItem;
+    const submitItem = {
+      description,
+      iceCream: { id: iceCream.id },
+      id,
+      inStock,
+      price: parseFloat(price),
+      quantity: parseInt(quantity),
+    };
+
+    putMenuItem(submitItem).then(() => {
+      history.push('/');
+    });
   };
 
   return (
@@ -88,30 +103,33 @@ const EditIceCream = ({ match, history }) => {
               <dd>{menuItem.iceCream.name}</dd>
             </dl>
             <form onSubmit={onSubmitHandler}>
-              <label>Description:</label>
+              <label htmlFor={descriptionid}>Description:</label>
               <textarea
                 name="description"
                 rows="3"
                 value={menuItem.description}
                 onChange={onChangeHandle}
+                id={descriptionid}
               />
 
-              <label>In Stock:</label>
+              <label htmlFor={inStockid}>In Stock:</label>
               <div className="checkbox-wrapper">
                 <input
                   type="checkbox"
                   name="inStock"
                   checked={menuItem.inStock}
                   onChange={onChangeHandle}
+                  id={inStockid}
                 />
                 <div className="checkbox-wrapper-checked" />
               </div>
 
-              <label>quantity:</label>
+              <label htmlFor={quantityid}>quantity:</label>
               <select
                 name="quantity"
                 value={menuItem.quantity}
                 onChange={onChangeHandle}
+                id={quantityid}
               >
                 <option value="0">0</option>
                 <option value="10">10</option>
@@ -121,13 +139,14 @@ const EditIceCream = ({ match, history }) => {
                 <option value="50">50</option>
               </select>
 
-              <label>Price:</label>
+              <label htmlFor={priceid}>Price:</label>
               <input
                 type="number"
                 step="0.01"
                 name="price"
                 value={menuItem.price}
                 onChange={onChangeHandle}
+                id={priceid}
               />
 
               <div className="button-container">
