@@ -1,12 +1,22 @@
 import React from 'react';
-import { userContext } from './ComponentA';
+import { userContext, ageContext } from './ComponentA';
 
 const ComponentE = () => {
   return (
     <div className="compo-e">
       <userContext.Consumer>
         {user => {
-          return <div>Hello - {user}</div>;
+          return (
+            <ageContext.Consumer>
+              {age => {
+                return (
+                  <div>
+                    Hello My Name is - {user} & I am {age} years old
+                  </div>
+                );
+              }}
+            </ageContext.Consumer>
+          );
         }}
       </userContext.Consumer>
     </div>
