@@ -10,8 +10,14 @@ import React from 'react';
 // import IceCreamMenu from './ice-cream/iceCremMenu';
 // import EditIceCream from './ice-cream/EditIceCream';
 import './styles/ice-cream.scss';
+
+// Context API
 import ComponentA from './contextAPI/ComponentA';
 
+// Reducer
+import CountOne from './reducer/CountOne';
+
+// Main App
 // const App = () => {
 //   return (
 //     <Router>
@@ -26,8 +32,14 @@ import ComponentA from './contextAPI/ComponentA';
 //   );
 // };
 
+// Context API
+// const App = () => {
+//   return <ComponentA />;
+// };
+
+// Context API
 const App = () => {
-  return <ComponentA />;
+  return <CountOne />;
 };
 
 export default App;
