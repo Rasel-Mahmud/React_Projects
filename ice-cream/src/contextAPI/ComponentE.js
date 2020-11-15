@@ -1,24 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { userContext, ageContext } from './ComponentA';
 
 const ComponentE = () => {
+  const name = useContext(userContext);
+  const age = useContext(ageContext);
+
   return (
     <div className="compo-e">
-      <userContext.Consumer>
-        {user => {
-          return (
-            <ageContext.Consumer>
-              {age => {
-                return (
-                  <div>
-                    Hello My Name is - {user} & I am {age} years old
-                  </div>
-                );
-              }}
-            </ageContext.Consumer>
-          );
-        }}
-      </userContext.Consumer>
+      <h1>
+        Hello my name is {name} & I am {age} years old
+      </h1>
     </div>
   );
 };
