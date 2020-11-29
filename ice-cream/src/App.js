@@ -15,7 +15,7 @@ import './styles/ice-cream.scss';
 import ComponentA from './contextAPI/ComponentA';
 
 // Reducer
-import CountTwo from './reducer/CountTwo';
+import CountThree from './reducer/CountThree';
 
 // Main App
 // const App = () => {
@@ -39,7 +39,7 @@ import CountTwo from './reducer/CountTwo';
 
 // Context API
 const App = () => {
-  return <CountTwo />;
+  return <CountThree />;
 };
 
 export default App;
