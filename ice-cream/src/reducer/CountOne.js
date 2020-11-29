@@ -5,7 +5,7 @@ const reducer = (state, action) => {
   switch (action) {
     case 'increment':
       return state + 1;
-    case 'decrement':
+    case 'decriment':
       return state - 1;
     case 'reset':
       return initialState;
@@ -18,9 +18,9 @@ function CountOne() {
   const [count, dispatch] = useReducer(reducer, initialState);
   return (
     <div>
-      <h1>{count}</h1>
+      <div className="count">Count - {count}</div>
       <button onClick={() => dispatch('increment')}>Increment</button>
-      <button onClick={() => dispatch('decrement')}>Decrement</button>
+      <button onClick={() => dispatch('decriment')}>Decrement</button>
       <button onClick={() => dispatch('reset')}>Reset</button>
     </div>
   );
