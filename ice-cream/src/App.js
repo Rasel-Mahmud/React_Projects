@@ -19,6 +19,10 @@ import CountThree from './reducer/CountThree';
 
 // Reducer With Context API
 import Main from './reducerWithContextAPI/Main';
+
+// Fetching data by useState & useReducer
+import DataFetchingOne from './fetchingData/DataFetchingOne';
+import DataFetchingTwo from './fetchingData/DataFetchingTwo';
 // Main App
 // const App = () => {
 //   return (
@@ -41,7 +45,7 @@ import Main from './reducerWithContextAPI/Main';
 
 // Context API
 const App = () => {
-  return <Main />;
+  return <DataFetchingTwo />;
 };
 
 export default App;
