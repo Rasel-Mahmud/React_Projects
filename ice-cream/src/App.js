@@ -17,6 +17,8 @@ import ComponentA from './contextAPI/ComponentA';
 // Reducer
 import CountThree from './reducer/CountThree';
 
+// Reducer With Context API
+import Main from './reducerWithContextAPI/Main';
 // Main App
 // const App = () => {
 //   return (
@@ -39,7 +41,7 @@ import CountThree from './reducer/CountThree';
 
 // Context API
 const App = () => {
-  return <CountThree />;
+  return <Main />;
 };
 
 export default App;
