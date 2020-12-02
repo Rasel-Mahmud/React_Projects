@@ -23,6 +23,10 @@ import Main from './reducerWithContextAPI/Main';
 // Fetching data by useState & useReducer
 import DataFetchingOne from './fetchingData/DataFetchingOne';
 import DataFetchingTwo from './fetchingData/DataFetchingTwo';
+
+// use callBack Hook
+import ParentComponent from './useCallback/ParentComponent';
+
 // Main App
 // const App = () => {
 //   return (
@@ -44,8 +48,13 @@ import DataFetchingTwo from './fetchingData/DataFetchingTwo';
 // };
 
 // Context API
+// const App = () => {
+//   return <DataFetchingTwo />;
+// };
+
+// useCallback
 const App = () => {
-  return <DataFetchingTwo />;
+  return <ParentComponent />;
 };
 
 export default App;
