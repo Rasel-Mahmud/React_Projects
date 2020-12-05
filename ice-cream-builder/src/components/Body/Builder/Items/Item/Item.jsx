@@ -4,6 +4,7 @@ import classes from './Item.module.css';
 
 function Item({ name, add, remove, scoops }) {
   const scoopsByCount = countBy(scoops);
+  console.log(scoopsByCount);
   return (
     <li className={classes.item}>
       <span>{name}</span>
@@ -16,13 +17,17 @@ function Item({ name, add, remove, scoops }) {
         >
           +
         </button>
-        <button
-          type="button"
-          onClick={remove.bind(this, name)}
-          className={[classes.minus, 'rounded'].join(' ')}
-        >
-          -
-        </button>
+        {scoopsByCount[name] ? (
+          <button
+            type="button"
+            onClick={remove.bind(this, name)}
+            className={[classes.minus, 'rounded'].join(' ')}
+          >
+            -
+          </button>
+        ) : (
+          ''
+        )}
       </div>
     </li>
   );
