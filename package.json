@@ -1,4 +1,8 @@
 {
+  "name": "ice-cream-builder",
+  "license": "MIT",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
