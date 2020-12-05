@@ -6,7 +6,7 @@ import classes from './Header.module.css';
 function Header() {
   return (
     <header>
-      <div className={classes.container}>
+      <div className={[classes.container, 'container'].join(' ')}>
         <div>
           <img className={classes.logo} src={logo} alt="Logo" />
         </div>

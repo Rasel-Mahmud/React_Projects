@@ -4,7 +4,7 @@ import classes from './Footer.module.css';
 function Footer() {
   return (
     <footer>
-      <div className={[classes.container, 'container'].join('')}>
+      <div className={[classes.container, 'container'].join(' ')}>
         <div>Copyright &copy;2020.</div>
         <div className="textRight">
           Built with <span className="red">&hearts;</span> by

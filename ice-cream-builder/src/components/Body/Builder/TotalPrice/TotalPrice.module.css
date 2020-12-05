@@ -1,0 +1,19 @@
+.order {
+  background-color: #28a745;
+  color: #fff;
+  border-color: #28a745;
+  border: 1px solid transparent;
+  display: block;
+  margin: 30px auto 0;
+  width: 100%;
+  padding: 10px 0;
+  font-weight: bold;
+}
+.total {
+  border-top: 1px solid #5250507e;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
